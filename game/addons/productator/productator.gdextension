@@ -1,0 +1,17 @@
+[configuration]
+
+entry_symbol = "productator_library_init"
+compatibility_minimum = 4.1
+
+[libraries]
+
+web.wasm32.debug = "res://addons/productator/lib/libgdproductator.javascript.template_debug.wasm32.wasm"
+web.wasm32.release = "res://addons/productator/lib/libgdproductator.javascript.template_release.wasm32.wasm"
+linux.x86_64.debug = "res://addons/productator/lib/libgdproductator.linux.template_debug.x86_64.so"
+linux.x86_64.release = "res://addons/productator/lib/libgdproductator.linux.template_release.x86_64.so"
+linux.debug.arm64 = "res://addons/productator/lib/libgdproductator.linux.template_debug.arm64.so"
+linux.release.arm64 = "res://addons/productator/lib/libgdproductator.linux.template_release.arm64.so"
+windows.x86_64.debug = "res://addons/productator/lib/libgdproductator.windows.template_debug.x86_64.dll"
+windows.x86_64.release = "res://addons/productator/lib/libgdproductator.windows.template_release.x86_64.dll"
+macos.debug = "res://addons/productator/lib/libgdproductator.macos.template_debug.framework"
+macos.release = "res://addons/productator/lib/libgdproductator.macos.template_release.framework"

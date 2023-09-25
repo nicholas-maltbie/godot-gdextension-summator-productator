@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7hpsuyqfphmd"]
+
+[ext_resource type="Script" path="res://Summator.gd" id="1_27wnq"]
+[ext_resource type="Script" path="res://Productator.gd" id="2_ioxkv"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Summator" type="Node" parent="."]
+script = ExtResource("1_27wnq")
+
+[node name="Productator" type="Node" parent="."]
+script = ExtResource("2_ioxkv")
