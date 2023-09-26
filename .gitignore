@@ -1,7 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
-game/builds/
 .sconsign*.dblite
+
+game/builds/
+game/templates/
 
 # Binaries
 *.o
@@ -20,5 +22,7 @@ game/builds/
 *.includes
 *.idb
 *.exp
+*.wasm
 
 *.dll
+*.exe
