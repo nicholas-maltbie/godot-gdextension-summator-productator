@@ -7,14 +7,15 @@ Basic project to test importing multiple gdextension libraries.
 git -C godot-cpp submodule update --init
 scons --directory godot-cpp
 
+# Compile godot editor
+git -C godot submodule update --init
+scons --directory godot target=editor
+
 # Build summator project for current platform
 scons --directory summator
 
 # Build productator project for current platform
 scons --directory productator
-
-# Compile godot editor
-scons --directory godot target=editor
 
 # Optional, open godot project
 $godot = "godot\bin\godot.windows.editor.x86_64.exe"
@@ -51,14 +52,17 @@ mkdir -p game/builds/windows
 
 ## Javascript/Web build
 
+Using emsdk version 3.1.14
+
 ```PowerShell
 # Optional, apply patch to allow building on windows.
 git -C godot apply --ignore-space-change --ignore-whitespace ..\patches\fixed_godot_javascript_subprocess.patch
 
 # Create godot export template
+scons --directory godot platform=web target=template_debug
 scons --directory godot platform=web dlink_enabled=yes target=template_debug
 mkdir -p game\templates
-mv .\godot\bin\godot.web.template_debug.wasm32.dlink.zip game\templates\
+mv .\godot\bin\godot.web.template_debug.wasm32.* game\templates\
 
 ## Fixes for JavaScript/Web support
 git -C godot-cpp apply --ignore-space-change --ignore-whitespace ../patches/fixed_javascript_build.patch
@@ -82,7 +86,7 @@ mkdir -p game/builds/web
 
 # Optional: host site via npx
 npx local-web-server `
->>   --cors.embedder-policy "require-corp" `
->>   --cors.opener-policy "same-origin" `
->>   --directory game\builds\web
+  --cors.embedder-policy "require-corp" `
+  --cors.opener-policy "same-origin" `
+  --directory game\builds\web
 ```
